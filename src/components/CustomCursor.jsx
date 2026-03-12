@@ -55,19 +55,17 @@ const CustomCursor = () => {
                 style={{
                     x: mouseX,
                     y: mouseY,
-                    translateX: '-50%',
-                    translateY: '-50%',
                 }}
                 animate={{
                     scale: isHovering ? [2, 2.2, 2] : [1, 1.1, 1],
-                    backgroundColor: isHovering ? 'rgba(212, 255, 0, 0.4)' : 'rgba(0, 229, 255, 0.3)',
+                    backgroundColor: isHovering ? 'rgba(201, 160, 255, 0.4)' : 'rgba(255, 126, 179, 0.3)',
                     opacity: [0.6, 1, 0.6]
                 }}
                 transition={{
                     scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
                     opacity: { repeat: Infinity, duration: 3, ease: "easeInOut" }
                 }}
-                className="w-8 h-8 rounded-full blur-md"
+                className="absolute w-8 h-8 rounded-full blur-md -translate-x-1/2 -translate-y-1/2"
             />
 
             {/* Inner Spark */}
@@ -75,8 +73,6 @@ const CustomCursor = () => {
                 style={{
                     x: mouseX,
                     y: mouseY,
-                    translateX: '-50%',
-                    translateY: '-50%',
                 }}
                 animate={{
                     scale: isHovering ? 0.5 : [1, 1.2, 1],
@@ -86,7 +82,7 @@ const CustomCursor = () => {
                     scale: { repeat: Infinity, duration: 2, ease: "easeInOut" },
                     opacity: { repeat: Infinity, duration: 2, ease: "easeInOut" }
                 }}
-                className="w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_#fff]"
+                className="absolute w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_#fff] -translate-x-1/2 -translate-y-1/2"
             />
         </div>
     )

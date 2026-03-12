@@ -18,7 +18,7 @@ const AboutAuthor = () => {
                         viewport={{ once: true }}
                         className="w-full lg:w-1/2 relative group"
                     >
-                        <div className="absolute -inset-10 bg-tambo-cyan/10 rounded-full blur-[100px] group-hover:bg-tambo-cyan/20 transition-all duration-1000"></div>
+                        <div className="absolute -inset-10 bg-tambo-rose/10 rounded-full blur-[100px] group-hover:bg-tambo-rose/20 transition-all duration-1000"></div>
                         <div className="relative overflow-hidden rounded-[4rem] border border-white/10 shadow-2xl">
                             <img
                                 src={authorImg}
@@ -27,7 +27,7 @@ const AboutAuthor = () => {
                             />
                         </div>
                         {/* Sacred Seal / Badge */}
-                        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-tambo-lime rounded-full p-8 flex items-center justify-center text-mystic-950 text-center text-[10px] font-black tracking-widest leading-tight uppercase rotate-12 shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+                        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-tambo-lavender rounded-full p-8 flex items-center justify-center text-mystic-950 text-center text-[10px] font-black tracking-widest leading-tight uppercase rotate-12 shadow-[0_20px_40px_rgba(15,10,24,0.5)]">
                             Syrová Autenticita
                         </div>
                     </motion.div>
@@ -39,17 +39,17 @@ const AboutAuthor = () => {
                         viewport={{ once: true }}
                         className="w-full lg:w-1/2"
                     >
-                        <span className="text-tambo-lime font-body text-xs tracking-[0.8em] uppercase mb-10 block font-black">DUŠE PŘÍBĚHU</span>
+                        <span className="text-tambo-lavender font-body text-xs tracking-[0.8em] uppercase mb-10 block font-black">DUŠE PŘÍBĚHU</span>
                         <h2 className="text-5xl md:text-8xl mb-12 leading-[0.9] font-display">Karolína <br /><span className="text-white/40 italic font-light">Pištěková</span></h2>
                         <div className="space-y-10 text-xl text-white/50 leading-relaxed font-light">
-                            <p className="italic border-l-4 border-tambo-lime pl-10 text-2xl text-white/80">
-                                „Nepíšu, abych se líbila. Píšu, abych přežila svou vlastní pravdu.“
+                            <p className="italic border-l-4 border-tambo-lavender pl-10 text-2xl text-white/80">
+                                „Nepíšu, abych se líbila. Píšu, abych unesla svou vlastní pravdu.“
                             </p>
                             <p>
-                                TAMBO je manifest o cestě ze tmy striptýzových klubů až do ticha peruánské džungle. Karolína tě nevede tam, kde to je bezpečné. Vede tě tam, kde jsi skutečně naživu.
+                                TAMBO je manifest o cestě z hlučných striptýzových klubů až do ticha peruánské džungle. Karolína tě nevede tam, kde je to bezpečné, ale tam, kde se budeš cítit skutečně naživu.
                             </p>
                             <p>
-                                Dnes stojí jako průvodkyně pro ženy, které cítí, že jejich „hodná holka“ už umřela a pod ní se probouzí někdo, koho se svět bojí, ale po kom svět zoufale touží.
+                                Dnes provází ženy, které odkládají masku ‚hodné holky‘. Pomáhá jim objevit jejich skutečnou sílu – tu, která může okolí znepokojovat, ale kterou svět ve skutečnosti zoufale potřebuje.
                             </p>
                         </div>
 

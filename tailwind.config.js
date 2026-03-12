@@ -8,16 +8,16 @@ export default {
         extend: {
             colors: {
                 mystic: {
-                    950: '#050508',
-                    900: '#0a0a14',
-                    800: '#1A1B4B',
+                    950: '#0f0a18',
+                    900: '#150f24',
+                    800: '#251840',
                 },
                 tambo: {
-                    lime: '#D4FF00',
-                    cyan: '#00E5FF',
-                    blue: '#00A3FF',
-                    purple: '#7A3EBF',
-                    gold: '#E9D758',
+                    lavender: '#C9A0FF',
+                    rose: '#FF7EB3',
+                    blue: '#9B72CF',
+                    purple: '#8B5CF6',
+                    gold: '#F5D0A9',
                 }
             },
             fontFamily: {
@@ -31,8 +31,13 @@ export default {
                 'orb-flow': 'orbFlow 20s linear infinite',
                 'pulse-spirit': 'pulseSpirit 4s ease-in-out infinite',
                 'spin-slow': 'spin 20s linear infinite',
+                'shimmer': 'shimmer 8s linear infinite',
             },
             keyframes: {
+                shimmer: {
+                    '0%': { backgroundPosition: '-200% center' },
+                    '100%': { backgroundPosition: '200% center' },
+                },
                 fadeIn: {
                     '0%': { opacity: '0' },
                     '100%': { opacity: '1' },

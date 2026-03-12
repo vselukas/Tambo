@@ -1,7 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import EmotionalHook from './components/EmotionalHook'
-import TargetAudience from './components/TargetAudience'
 import Testimonials from './components/Testimonials'
 import PurchaseOptions from './components/PurchaseOptions'
 import AboutAuthor from './components/AboutAuthor'
@@ -16,7 +15,6 @@ function App() {
             <main>
                 <Hero />
                 <EmotionalHook />
-                <TargetAudience />
                 <Testimonials />
                 <PurchaseOptions />
                 <AboutAuthor />
