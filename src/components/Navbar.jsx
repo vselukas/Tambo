@@ -65,16 +65,16 @@ const Navbar = () => {
                                 href={link.href} 
                                 className={`text-xs font-black tracking-[0.4em] uppercase transition-all duration-500 hover:scale-110 ${
                                     isActive 
-                                        ? 'text-tambo-lavender drop-shadow-[0_0_8px_rgba(201,160,255,0.8)] scale-110' 
-                                        : 'text-white/60 hover:text-tambo-lavender'
+                                        ? 'text-tambo-rose drop-shadow-[0_0_12px_rgba(255,126,179,0.8)] scale-110' 
+                                        : 'text-white/50 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]'
                                 }`}
                             >
                                 {link.name}
                             </a>
                         )
                     })}
-                    <a href="#koupit" className="btn-bold !px-8 !py-3 !text-[10px]">
-                        KOUPIT
+                    <a href="#koupit" className="btn-bold !px-8 !py-3 !text-[12px]">
+                        CHCI KNIHU
                     </a>
                 </div>
 
@@ -93,8 +93,8 @@ const Navbar = () => {
                             <a 
                                 key={link.name} 
                                 href={link.href} 
-                                className={`text-2xl font-display font-bold tracking-[0.3em] uppercase transition-all duration-500 ${
-                                    isActive ? 'text-tambo-lavender scale-110' : 'text-white/40'
+                                className={`text-xl md:text-2xl font-display font-bold tracking-[0.3em] uppercase transition-all duration-500 ${
+                                    isActive ? 'text-tambo-rose drop-shadow-[0_0_15px_rgba(255,126,179,0.5)] scale-110' : 'text-white/40 hover:text-white'
                                 }`}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
@@ -102,8 +102,8 @@ const Navbar = () => {
                             </a>
                         )
                     })}
-                    <a href="#koupit" className="px-12 py-5 bg-tambo-lavender text-mystic-950 rounded-full font-black tracking-[0.4em] uppercase" onClick={() => setIsMobileMenuOpen(false)}>
-                        KOUPIT KNIHU
+                    <a href="#koupit" className="btn-bold !px-8 !py-4 !text-xs" onClick={() => setIsMobileMenuOpen(false)}>
+                        CHCI KNIHU
                     </a>
                 </div>
             )}

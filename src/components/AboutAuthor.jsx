@@ -4,13 +4,13 @@ import womanImg from '../assets/meditation.png'
 
 const AboutAuthor = () => {
     return (
-        <section id="autorka" className="py-48 bg-mystic-950 overflow-hidden relative">
+        <section id="autorka" className="py-20 md:py-32 lg:py-48 bg-mystic-950 overflow-hidden relative">
             {/* Background abstraction */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vw] bg-tambo-purple/5 rounded-full blur-[200px] pointer-events-none"></div>
             <img src={womanImg} alt="" className="absolute -bottom-20 -right-20 w-[60vw] opacity-[0.02] scale-150 rotate-[-15deg] pointer-events-none grayscale" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center gap-32">
+                <div className="flex flex-col lg:flex-row items-center gap-16 md:gap-20 lg:gap-32">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -27,7 +27,7 @@ const AboutAuthor = () => {
                             />
                         </div>
                         {/* Sacred Seal / Badge */}
-                        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-tambo-lavender rounded-full p-8 flex items-center justify-center text-mystic-950 text-center text-[10px] font-black tracking-widest leading-tight uppercase rotate-12 shadow-[0_20px_40px_rgba(15,10,24,0.5)]">
+                        <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-tambo-lavender rounded-full p-4 md:p-6 lg:p-8 flex items-center justify-center text-mystic-950 text-center text-[8px] md:text-[9px] lg:text-[10px] font-black tracking-widest leading-tight uppercase rotate-12 shadow-[0_20px_40px_rgba(15,10,24,0.5)]">
                             Syrová Autenticita
                         </div>
                     </motion.div>
@@ -39,10 +39,10 @@ const AboutAuthor = () => {
                         viewport={{ once: true }}
                         className="w-full lg:w-1/2"
                     >
-                        <span className="text-tambo-lavender font-body text-xs tracking-[0.8em] uppercase mb-10 block font-black">DUŠE PŘÍBĚHU</span>
-                        <h2 className="text-5xl md:text-8xl mb-12 leading-[0.9] font-display">Karolína <br /><span className="text-white/40 italic font-light">Pištěková</span></h2>
-                        <div className="space-y-10 text-xl text-white/50 leading-relaxed font-light">
-                            <p className="italic border-l-4 border-tambo-lavender pl-10 text-2xl text-white/80">
+                        <span className="text-tambo-lavender font-body text-[10px] md:text-xs tracking-[0.8em] uppercase mb-6 md:mb-10 block font-black">DUŠE PŘÍBĚHU</span>
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-8 md:mb-12 leading-[1.1] md:leading-[0.9] font-display">Karolína <br /><span className="text-white/40 italic font-light">Pištěková</span></h2>
+                        <div className="space-y-8 md:space-y-10 text-lg md:text-xl text-white/50 leading-relaxed font-light">
+                            <p className="italic border-l-4 border-tambo-lavender pl-6 md:pl-10 text-xl md:text-2xl text-white/80">
                                 „Nepíšu, abych se líbila. Píšu, abych unesla svou vlastní pravdu.“
                             </p>
                             <p>

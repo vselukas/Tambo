@@ -15,7 +15,7 @@ const PurchaseOptions = () => {
             subtitle: "Kniha pro ty, které se nebojí jít do hloubky.",
             price: "399 Kč",
             features: ["Tištěná kniha", "Odesíláme do 48h"],
-            cta: "Koupit",
+            cta: "Chci knihu",
             highlight: false
         },
         {
@@ -23,7 +23,7 @@ const PurchaseOptions = () => {
             subtitle: "3x TAMBO. Pro tebe a tvé nejbližší spojenkyně.",
             price: "1 059 Kč",
             features: ["3x Tištěná kniha", "Doprava zdarma"],
-            cta: "Koupit",
+            cta: "Chci knihu",
             highlight: true,
             badge: "nejvýhodnější"
         },
@@ -32,7 +32,7 @@ const PurchaseOptions = () => {
             subtitle: "Okamžitý přístup k příběhu. Bez čekání.",
             price: "249 Kč",
             features: ["PDF / EPUB", "Čti okamžitě"],
-            cta: "Koupit",
+            cta: "Chci knihu",
             highlight: false
         },
         {
@@ -40,14 +40,14 @@ const PurchaseOptions = () => {
             subtitle: "Limitovaná série s osobním požehnáním a dary.",
             price: "999 Kč",
             features: ["Zatím nedostupné", "Buď ve střehu"],
-            cta: "Koupit",
+            cta: "Chci knihu",
             highlight: false,
             disabled: true
         }
     ]
 
     return (
-        <section ref={sectionRef} id="koupit" className="py-40 bg-mystic-950 relative overflow-hidden">
+        <section ref={sectionRef} id="koupit" className="py-20 md:py-32 lg:py-40 bg-mystic-950 relative overflow-hidden">
             {/* Background Glows */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 opacity-40">
                 <div className="absolute top-1/4 left-[-10%] w-[50vw] h-[50vw] bg-tambo-lavender/10 rounded-full blur-[180px] animate-pulse-spirit"></div>
@@ -60,13 +60,13 @@ const PurchaseOptions = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.5 }}
                     viewport={{ once: true }}
-                    className="text-center mb-32"
+                    className="text-center mb-20 md:mb-32"
                 >
-                    <span className="text-tambo-rose font-body text-xs tracking-[1em] uppercase mb-10 block font-black">INVESTICE DO PRAVDY</span>
-                    <h2 className="text-6xl md:text-9xl font-display">Zvol si <span className="text-tambo-lavender italic font-light">svou podobu</span> proměny</h2>
+                    <span className="text-tambo-rose font-body text-[10px] md:text-xs tracking-[0.8em] md:tracking-[1em] uppercase mb-6 md:mb-10 block font-black">INVESTICE DO PRAVDY</span>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] 2xl:text-9xl font-display">Zvol si <br className="sm:hidden" /><span className="text-tambo-lavender italic font-light">svou podobu</span> proměny</h2>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                     {options.map((option, idx) => (
                         <motion.div
                             key={idx}
@@ -86,11 +86,11 @@ const PurchaseOptions = () => {
                             )}
 
                             {/* Content Wrapper with conditional grayscale */}
-                            <div className={`p-12 h-full flex flex-col justify-between ${option.disabled ? 'opacity-30 grayscale' : ''}`}>
+                            <div className={`p-8 md:p-10 lg:p-12 h-full flex flex-col justify-between ${option.disabled ? 'opacity-30 grayscale' : ''}`}>
                                 <div>
-                                    <h3 className="text-3xl font-display mb-8 text-white">{option.title}</h3>
-                                    <p className="text-base text-white/60 mb-8 leading-relaxed font-light italic">{option.subtitle}</p>
-                                    <div className="text-4xl font-display text-white mb-10 tracking-tight">{option.price}</div>
+                                    <h3 className="text-2xl md:text-3xl font-display mb-6 md:mb-8 text-white">{option.title}</h3>
+                                    <p className="text-sm md:text-base text-white/60 mb-6 md:mb-8 leading-relaxed font-light italic">{option.subtitle}</p>
+                                    <div className="text-3xl md:text-4xl font-display text-white mb-8 md:mb-10 tracking-tight">{option.price}</div>
 
                                     <ul className="space-y-4 mb-12">
                                         {option.features.map((feature, i) => (

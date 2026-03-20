@@ -46,7 +46,7 @@ const Testimonials = () => {
     ]
 
     return (
-        <section ref={sectionRef} id="recenze" className="py-40 md:py-64 bg-mystic-950 relative overflow-hidden">
+        <section ref={sectionRef} id="recenze" className="py-20 md:py-40 lg:py-64 bg-mystic-950 relative overflow-hidden">
             {/* Simple Parallax Background Motif */}
             <motion.img
                 style={{ y: yParallax }}
@@ -70,19 +70,19 @@ const Testimonials = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                     viewport={{ once: true }}
-                    className="text-center mb-24 lg:mb-40"
+                    className="text-center mb-16 md:mb-24 lg:mb-40"
                 >
-                    <span className="text-tambo-rose font-body text-xs tracking-[0.6em] uppercase mb-6 block font-black opacity-60">
+                    <span className="text-tambo-rose font-body text-[10px] md:text-xs tracking-[0.6em] uppercase mb-4 md:mb-6 block font-black opacity-60">
                         RECENZE
                     </span>
-                    <h2 className="text-4xl md:text-7xl font-display mb-8 text-white leading-[1.1]">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display mb-6 md:mb-8 text-white leading-[1.1]">
                         Hlasy žen, které <br />
                         <span className="text-tambo-lavender italic drop-shadow-[0_0_15px_rgba(201,160,255,0.2)]">slyšely volání</span>
                     </h2>
                     <div className="w-16 h-px bg-gradient-to-r from-transparent via-tambo-lavender/30 to-transparent mx-auto"></div>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-16 max-w-6xl mx-auto">
                     {reviews.map((review, idx) => (
                         <motion.div
                             key={idx}
@@ -90,10 +90,10 @@ const Testimonials = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: idx * 0.15 }}
                             viewport={{ once: true }}
-                            className="glass-spirit p-12 lg:p-16 relative flex flex-col justify-between group hover:border-tambo-lavender/30 transition-all duration-1000"
+                            className="glass-spirit p-8 md:p-10 lg:p-16 relative flex flex-col justify-between group hover:border-tambo-lavender/30 transition-all duration-1000"
                         >
-                            <Quote className="w-12 h-12 text-tambo-rose/5 absolute top-8 left-8 group-hover:text-tambo-rose/10 transition-colors" />
-                            <p className="text-xl lg:text-2xl text-white/50 leading-relaxed font-light italic mb-10 relative z-10 group-hover:text-white/80 transition-colors">
+                            <Quote className="w-8 h-8 md:w-12 md:h-12 text-tambo-rose/5 absolute top-6 left-6 md:top-8 md:left-8 group-hover:text-tambo-rose/10 transition-colors" />
+                            <p className="text-lg md:text-xl lg:text-2xl text-white/50 leading-relaxed font-light italic mb-8 md:mb-10 relative z-10 group-hover:text-white/80 transition-colors">
                                 "{review.text}"
                             </p>
                             <div className="flex items-center gap-6">

@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'fram
 import { useRef, useEffect } from 'react'
 import mockupImg from '../assets/mockup.png'
 import universeImg from '../assets/universe.png'
-import { ChevronDown } from 'lucide-react'
+
 
 /* ──────────────────────── Sparkle SVG ──────────────────────── */
 const Sparkle = ({ className, style }) => (
@@ -72,7 +72,7 @@ const Hero = () => {
     }, [mouseX, mouseY])
 
     return (
-        <section id="hero" ref={containerRef} className="relative h-screen flex items-center overflow-hidden py-32 lg:py-0">
+        <section id="hero" ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden py-24 md:py-32 lg:py-0">
             {/* ── FILM GRAIN OVERLAY (Static image or SVG filter) ── */}
             <div className="absolute inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay">
                 <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
@@ -88,8 +88,8 @@ const Hero = () => {
                 {/* Global light source from top right */}
                 <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-tambo-lavender/[0.01] rounded-full blur-[180px]"></div>
                 
-                <div className="absolute top-1/3 left-1/3 w-[60vw] h-[60vw] bg-tambo-purple/[0.02] rounded-full blur-[200px] animate-pulse-spirit"></div>
-                <div className="absolute bottom-1/4 right-1/3 w-[50vw] h-[50vw] bg-tambo-rose/[0.01] rounded-full blur-[220px] animate-pulse-spirit" style={{ animationDelay: '-3s' }}></div>
+                <div className="absolute top-1/3 left-1/3 w-[80vw] md:w-[60vw] h-[80vw] md:h-[60vw] bg-tambo-purple/[0.02] rounded-full blur-[200px] animate-pulse-spirit"></div>
+                <div className="absolute bottom-1/4 right-1/3 w-[70vw] md:w-[50vw] h-[70vw] md:h-[50vw] bg-tambo-rose/[0.01] rounded-full blur-[220px] animate-pulse-spirit" style={{ animationDelay: '-3s' }}></div>
             </div>
 
             {/* ── Floating Mist/Fog Elements ── */}
@@ -121,8 +121,8 @@ const Hero = () => {
             </div>
 
             {/* ── Main Content: Book Left + Text Right ── */}
-            <div className="container mx-auto px-6 lg:px-20 relative z-10 scale-[1.02]">
-                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
+            <div className="container mx-auto px-6 lg:px-20 relative z-10 scale-[1.02] pt-20 lg:pt-0">
+                <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-16 lg:gap-32">
 
                     {/* ─── LEFT: Book with Masked Universe Backdrop ─── */}
                     <motion.div
@@ -134,7 +134,7 @@ const Hero = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative flex-shrink-0 w-80 lg:w-[32rem] flex items-center justify-center p-12"
+                        className="relative flex-shrink-0 w-64 max-w-full md:w-80 lg:w-[24rem] xl:w-[28rem] 2xl:w-[32rem] flex items-center justify-center p-8 md:p-12 mb-8 lg:mb-0"
                     >
                         {/* ── UNIVERSE PORTAL BACKDROP with Cursor Parallax ── */}
                         <motion.div
@@ -176,13 +176,13 @@ const Hero = () => {
                         initial={{ opacity: 0, x: 60 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex-1 text-center lg:text-left max-w-2xl lg:pt-12"
+                        className="flex-1 text-center lg:text-left lg:max-w-none lg:pt-12"
                     >
-                        <span className="text-tambo-lavender font-body text-sm tracking-[0.8em] uppercase mb-10 block font-black opacity-90 drop-shadow-[0_0_15px_rgba(201,160,255,0.5)]">
+                        <span className="text-tambo-lavender font-body text-xs sm:text-sm tracking-[0.8em] uppercase mb-6 md:mb-10 block font-black opacity-90 drop-shadow-[0_0_15px_rgba(201,160,255,0.5)]">
                             ODVAHA BÝT SKUTEČNÁ
                         </span>
 
-                        <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] mb-12 leading-[0.9] font-display text-white">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] 2xl:text-[6.5rem] mb-8 md:mb-12 leading-[1.1] md:leading-[0.9] font-display text-white">
                             Vrať se k sobě. <br />
                             <span className="relative">
                                 Přijmi svou{' '}
@@ -202,15 +202,15 @@ const Hero = () => {
                             </span>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-white/40 mb-14 leading-relaxed font-light italic border-l-4 border-tambo-lavender/30 pl-10 max-w-xl mx-auto lg:mx-0">
+                        <p className="text-lg md:text-xl lg:text-2xl text-white/40 mb-10 md:mb-14 leading-relaxed font-light italic border-l-4 border-tambo-lavender/30 pl-6 md:pl-10 max-w-xl mx-auto lg:mx-0">
                             TAMBO je manifest ženy, která už odmítá plnit cizí očekávání. Je to přímá cesta do hloubky, kde na tebe čeká tvoje skutečná pravda.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-8 items-center lg:items-start">
-                            <a href="#koupit" className="btn-bold">
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center lg:items-start w-full sm:w-auto">
+                            <a href="#koupit" className="btn-bold w-full sm:w-auto">
                                 CHCI KNIHU
                             </a>
-                            <a href="https://cdn.prod.website-files.com/645a912a87cb14233f9f9bbd/6491ab808b79409bef0cf5df_Tambo-Ukazka.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline-spirit">
+                            <a href="https://cdn.prod.website-files.com/645a912a87cb14233f9f9bbd/6491ab808b79409bef0cf5df_Tambo-Ukazka.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline-spirit w-full sm:w-auto text-[11px] md:text-[13px]">
                                 STÁHNOUT UKÁZKU
                             </a>
                         </div>
@@ -219,15 +219,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* ── Scroll Indicator ── */}
-            <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30"
-            >
-                <div className="w-px h-16 bg-gradient-to-b from-tambo-rose to-transparent mb-4"></div>
-                <ChevronDown className="w-8 h-8 text-tambo-rose" />
-            </motion.div>
+
         </section>
     )
 }

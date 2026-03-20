@@ -39,7 +39,7 @@ const EmotionalHook = () => {
         <section
             ref={sectionRef}
             id="o-knize"
-            className="py-32 md:py-48 bg-mystic-950 relative overflow-hidden"
+            className="py-20 md:py-32 lg:py-48 bg-mystic-950 relative overflow-hidden"
         >
             {/* Background Atmosphere */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-30">
@@ -54,25 +54,25 @@ const EmotionalHook = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, ease: "easeOut" }}
                     viewport={{ once: true }}
-                    className="text-center mb-24 md:mb-40"
+                    className="text-center mb-16 md:mb-24 lg:mb-40"
                 >
-                    <span className="text-tambo-rose font-body text-xs tracking-[0.8em] uppercase mb-8 block font-black opacity-80">
+                    <span className="text-tambo-rose font-body text-xs tracking-[0.6em] sm:tracking-[0.8em] uppercase mb-6 md:mb-8 block font-black opacity-80">
                         CEREMONIE PRAVDY
                     </span>
-                    <h2 className="text-4xl md:text-7xl lg:text-8xl mb-12 font-display leading-[1.1] text-white">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl mb-8 md:mb-12 font-display leading-[1.1] text-white">
                         Zrcadlo tvé <br />
                         <span className="text-tambo-lavender italic drop-shadow-[0_0_15px_rgba(201,160,255,0.3)]">skutečné</span> podstaty
                     </h2>
-                    <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-12"></div>
-                    <p className="text-lg md:text-xl text-white/40 leading-relaxed font-light max-w-3xl mx-auto italic border-y border-white/5 py-12">
+                    <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-8 md:mb-12"></div>
+                    <p className="text-base sm:text-lg md:text-xl text-white/40 leading-relaxed font-light max-w-3xl mx-auto italic border-y border-white/5 py-8 md:py-12">
                         „TAMBO je průvodcem k tvé vlastní vnitřní džungli. Je to tiché zrcadlo postavené před tvou duši ve chvíli, kdy už nelze lhát sama sobě."
                     </p>
                 </motion.div>
 
                 {/* Immersive Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-20 items-center relative">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 lg:gap-20 items-center relative">
                     {steps.map((step, idx) => (
-                        <div key={idx} className="relative group">
+                        <div key={idx} className="relative group flex flex-col items-center">
                             <motion.div
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -90,11 +90,11 @@ const EmotionalHook = () => {
                                     <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-mystic-950 via-mystic-950/40 to-transparent opacity-90 transition-opacity"></div>
                                     
                                     {/* Text Content inside Card */}
-                                    <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-                                        <h3 className="text-3xl md:text-5xl text-white mb-6 font-display group-hover:text-white transition-colors drop-shadow-sm">
+                                    <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 lg:p-10">
+                                        <h3 className="text-2xl md:text-3xl lg:text-5xl text-white mb-4 md:mb-6 font-display group-hover:text-white transition-colors drop-shadow-sm">
                                             {step.title}
                                         </h3>
-                                        <p className="text-white/80 leading-relaxed font-body text-base lg:text-lg group-hover:text-white transition-colors">
+                                        <p className="text-white/80 leading-relaxed font-body text-sm sm:text-base lg:text-lg group-hover:text-white transition-colors">
                                             {step.text}
                                         </p>
                                     </div>
@@ -109,7 +109,7 @@ const EmotionalHook = () => {
 
                             {/* Progression Arrow (Centered between cards) */}
                             {idx < steps.length - 1 && (
-                                <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 lg:bottom-auto lg:left-[calc(100%+40px)] lg:top-1/2 lg:-translate-y-1/2 flex justify-center z-20 pointer-events-none">
+                                <div className="absolute -bottom-10 md:-bottom-12 left-1/2 -translate-x-1/2 lg:bottom-auto lg:left-[calc(100%+40px)] lg:top-1/2 lg:-translate-y-1/2 flex justify-center z-20 pointer-events-none">
                                     <motion.div
                                         animate={{ 
                                             y: [0, 8, 0] 

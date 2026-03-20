@@ -3,30 +3,30 @@ import { Instagram, Facebook, Mail, Phone, Sparkles } from 'lucide-react'
 
 const Footer = () => {
     return (
-        <footer className="py-48 bg-mystic-950 border-t border-white/5 relative overflow-hidden">
+        <footer className="py-20 md:py-32 lg:py-48 bg-mystic-950 border-t border-white/5 relative overflow-hidden">
             {/* Background Spirit */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[50rem] bg-tambo-lavender/5 rounded-full blur-[150px] pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="max-w-6xl mx-auto text-center mb-48">
+                <div className="max-w-6xl mx-auto text-center mb-24 md:mb-32 lg:mb-48">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1.5 }}
                         viewport={{ once: true }}
                     >
-                        <Sparkles className="w-12 h-12 text-tambo-lavender mx-auto mb-12 animate-pulse" />
-                        <h2 className="text-6xl md:text-9xl mb-16 font-display leading-[0.9]">
+                        <Sparkles className="w-8 h-8 md:w-12 md:h-12 text-tambo-lavender mx-auto mb-8 md:mb-12 animate-pulse" />
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-10 md:mb-16 font-display leading-[1.1] md:leading-[0.9]">
                             TVÁ DIVOKOST <br />
                             <span className="text-spirit italic font-light">JE TVÁ SÍLA.</span>
                         </h2>
-                        <a href="#koupit" className="btn-bold">
-                            CHCI KNIHU TAMBO
+                        <a href="#koupit" className="btn-bold w-full sm:w-auto">
+                            CHCI KNIHU
                         </a>
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-32 pt-32 border-t border-white/5 items-start">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24 lg:gap-32 pt-16 md:pt-24 lg:pt-32 border-t border-white/5 items-start">
                     <div className="space-y-12">
                         <h3 className="text-3xl font-display text-tambo-lavender italic">Tambo</h3>
                         <p className="text-lg text-white/30 leading-relaxed font-light italic border-l border-white/10 pl-8">

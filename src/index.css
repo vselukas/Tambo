@@ -52,30 +52,31 @@ button,
 
   /* Bold CTA for Courage */
   .btn-bold {
-    @apply px-12 py-5 rounded-full font-black text-[10px] tracking-[0.4em] uppercase transition-all duration-500 hover:scale-110 active:scale-95 text-center inline-block cursor-none border border-transparent;
-    background-color: var(--tambo-lavender);
-    color: var(--mystic-950);
-    box-shadow: 0 0 0px rgba(201, 160, 255, 0);
+    @apply px-12 py-5 rounded-full font-black text-[13px] tracking-[0.25em] uppercase transition-all duration-500 hover:scale-110 active:scale-95 text-center inline-block cursor-none border border-transparent whitespace-nowrap;
+    background: linear-gradient(135deg, #7000FF, #D100FF);
+    color: white;
+    box-shadow: 0 0 20px rgba(112, 0, 255, 0.1);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .btn-bold:hover {
-    box-shadow: 0 0 30px rgba(201, 160, 255, 0.4);
-    background-color: white;
+    box-shadow: 0 0 40px rgba(112, 0, 255, 0.4);
+    filter: brightness(1.1);
   }
 
   .btn-outline-spirit {
-    @apply px-12 py-5 bg-transparent border rounded-full font-black text-[10px] tracking-[0.4em] uppercase transition-all duration-500 hover:scale-110 active:scale-95 text-center inline-block cursor-none;
-    border-color: rgba(255, 255, 255, 0.1);
+    @apply px-12 py-5 bg-transparent border rounded-full font-black text-[13px] tracking-[0.25em] uppercase transition-all duration-500 hover:scale-110 active:scale-95 text-center inline-block cursor-none whitespace-nowrap;
+    border-color: rgba(255, 255, 255, 0.3);
     color: white;
-    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
-    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.08);
   }
 
   .btn-outline-spirit:hover {
     background-color: white;
     color: var(--mystic-950);
     border-color: white;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 40px rgba(201, 160, 255, 0.3);
   }
 
   /* Mystical Glass */
