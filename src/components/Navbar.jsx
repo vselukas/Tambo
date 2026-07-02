@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Sparkles } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [activeSection, setActiveSection] = useState('')
+    const { language, toggleLanguage, t } = useLanguage()
     
     const navLinks = [
-        { name: 'O knize', href: '#o-knize', id: 'o-knize' },
-        { name: 'Recenze', href: '#recenze', id: 'recenze' },
-        { name: 'Autorka', href: '#autorka', id: 'autorka' },
+        { name: t('nav.about'), href: '#o-knize', id: 'o-knize' },
+        { name: t('nav.reviews'), href: '#recenze', id: 'recenze' },
+        { name: t('nav.author'), href: '#autorka', id: 'autorka' },
         { id: 'hero' }
     ]
 
@@ -51,9 +53,17 @@ const Navbar = () => {
     return (
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 border-b ${isScrolled ? 'bg-mystic-950/60 backdrop-blur-2xl py-4 border-white/5' : 'bg-transparent py-10 border-transparent'}`}>
             <div className="container mx-auto px-6 flex justify-between items-center">
-                <a href="#hero" className="flex items-center gap-4 text-2xl font-display font-black tracking-[0.4em] text-tambo-lavender uppercase group">
-                    <span className="inline">Tambo</span>
-                </a>
+                <div className="flex items-center gap-4 md:gap-6">
+                    <a href="#hero" className="flex items-center text-2xl font-display font-black tracking-[0.4em] text-tambo-lavender uppercase group">
+                        <span className="inline">Tambo</span>
+                    </a>
+                    <button 
+                        onClick={() => toggleLanguage(language === 'cz' ? 'en' : 'cz')} 
+                        className="text-[10px] md:text-xs font-black tracking-[0.2em] text-white/30 hover:text-white transition-all duration-300 border-l border-white/10 pl-4 md:pl-6"
+                    >
+                        {language === 'cz' ? 'EN' : 'CZ'}
+                    </button>
+                </div>
 
                 {/* Minimal Desktop Menu */}
                 <div className="hidden md:flex space-x-12 items-center">
@@ -73,8 +83,9 @@ const Navbar = () => {
                             </a>
                         )
                     })}
-                    <a href="#koupit" className="btn-bold !px-8 !py-3 !text-[12px]">
-                        CHCI KNIHU
+                    
+                    <a href="#koupit" className="btn-bold !px-8 !py-3 !text-[12px] ml-2">
+                        {t('nav.buy')}
                     </a>
                 </div>
 
@@ -102,8 +113,14 @@ const Navbar = () => {
                             </a>
                         )
                     })}
-                    <a href="#koupit" className="btn-bold !px-8 !py-4 !text-xs" onClick={() => setIsMobileMenuOpen(false)}>
-                        CHCI KNIHU
+                    <button 
+                        onClick={() => { toggleLanguage(language === 'cz' ? 'en' : 'cz'); setIsMobileMenuOpen(false); }} 
+                        className="text-xl md:text-2xl font-display font-bold tracking-[0.3em] uppercase transition-all duration-500 text-white/40 hover:text-white"
+                    >
+                        {language === 'cz' ? 'ENGLISH VERSION' : 'ČESKÁ VERZE'}
+                    </button>
+                    <a href="#koupit" className="btn-bold !px-8 !py-4 !text-xs mt-8" onClick={() => setIsMobileMenuOpen(false)}>
+                        {t('nav.buy')}
                     </a>
                 </div>
             )}

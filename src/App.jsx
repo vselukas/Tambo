@@ -6,21 +6,24 @@ import PurchaseOptions from './components/PurchaseOptions'
 import AboutAuthor from './components/AboutAuthor'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
+import { LanguageProvider } from './context/LanguageContext'
 
 function App() {
     return (
-        <div className="min-h-screen bg-mystic-900 overflow-x-hidden">
-            <CustomCursor />
-            <Navbar />
-            <main>
-                <Hero />
-                <EmotionalHook />
-                <Testimonials />
-                <PurchaseOptions />
-                <AboutAuthor />
-            </main>
-            <Footer />
-        </div>
+        <LanguageProvider>
+            <div className="min-h-screen bg-mystic-900 overflow-x-hidden">
+                <CustomCursor />
+                <Navbar />
+                <main>
+                    <Hero />
+                    <EmotionalHook />
+                    <Testimonials />
+                    <PurchaseOptions />
+                    <AboutAuthor />
+                </main>
+                <Footer />
+            </div>
+        </LanguageProvider>
     )
 }
 

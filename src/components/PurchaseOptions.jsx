@@ -1,50 +1,30 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Crown, Star, BookOpen, Gift, ArrowRight } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 const PurchaseOptions = () => {
+    const { t, dict, language } = useLanguage()
     const sectionRef = useRef(null)
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
     })
 
-    const options = [
-        {
-            title: "Kniha TAMBO",
-            subtitle: "Kniha pro ty, které se nebojí jít do hloubky.",
-            price: "399 Kč",
-            features: ["Tištěná kniha", "Odesíláme do 48h"],
-            cta: "Chci knihu",
-            highlight: false
-        },
-        {
-            title: "Balíček 3 knih",
-            subtitle: "3x TAMBO. Pro tebe a tvé nejbližší spojenkyně.",
-            price: "1 059 Kč",
-            features: ["3x Tištěná kniha", "Doprava zdarma"],
-            cta: "Chci knihu",
-            highlight: true,
-            badge: "nejvýhodnější"
-        },
-        {
-            title: "E-book",
-            subtitle: "Okamžitý přístup k příběhu. Bez čekání.",
-            price: "249 Kč",
-            features: ["PDF / EPUB", "Čti okamžitě"],
-            cta: "Chci knihu",
-            highlight: false
-        },
-        {
-            title: "Rituální Edice",
-            subtitle: "Limitovaná série s osobním požehnáním a dary.",
-            price: "999 Kč",
-            features: ["Zatím nedostupné", "Buď ve střehu"],
-            cta: "Chci knihu",
-            highlight: false,
-            disabled: true
-        }
-    ]
+    const rawOptions = dict?.options?.items || []
+
+    const optionsMap = rawOptions.map((opt, index) => {
+        if (index === 0) return { ...opt, highlight: false }
+        if (index === 1) return { ...opt, highlight: true }
+        if (index === 2) return { ...opt, highlight: false }
+        if (index === 3) return { ...opt, highlight: false, disabled: true, soldout: true }
+        return opt;
+    })
+
+    // Filter logic: If English, only show the E-book (index 2)
+    const displayOptions = language === 'en' 
+        ? optionsMap.filter((_, idx) => idx === 2)
+        : optionsMap;
 
     return (
         <section ref={sectionRef} id="koupit" className="py-20 md:py-32 lg:py-40 bg-mystic-950 relative overflow-hidden">
@@ -62,12 +42,12 @@ const PurchaseOptions = () => {
                     viewport={{ once: true }}
                     className="text-center mb-20 md:mb-32"
                 >
-                    <span className="text-tambo-rose font-body text-[10px] md:text-xs tracking-[0.8em] md:tracking-[1em] uppercase mb-6 md:mb-10 block font-black">INVESTICE DO PRAVDY</span>
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] 2xl:text-9xl font-display">Zvol si <br className="sm:hidden" /><span className="text-tambo-lavender italic font-light">svou podobu</span> proměny</h2>
+                    <span className="text-tambo-rose font-body text-[10px] md:text-xs tracking-[0.8em] md:tracking-[1em] uppercase mb-6 md:mb-10 block font-black">{t('options.tagline')}</span>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] 2xl:text-9xl font-display">{t('options.title1')} <br className="sm:hidden" /><span className="text-tambo-lavender italic font-light">{t('options.title2')}</span> {t('options.title3')}</h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                    {options.map((option, idx) => (
+                <div className={`grid grid-cols-1 ${language === 'en' ? 'md:grid-cols-1 max-w-sm mx-auto' : 'md:grid-cols-2 lg:grid-cols-4'} gap-8 lg:gap-12`}>
+                    {displayOptions.map((option, idx) => (
                         <motion.div
                             key={idx}
                             initial={{ opacity: 0, y: 40 }}
@@ -80,7 +60,7 @@ const PurchaseOptions = () => {
                             {(option.disabled || option.badge) && (
                                 <div className={`absolute -top-4 -right-4 bg-mystic-950 border px-4 py-2 rounded-full z-30 ${option.disabled ? 'border-red-500/80 shadow-[0_0_20px_rgba(239,68,68,0.4)]' : 'border-tambo-lavender/50 shadow-[0_0_20px_rgba(201,160,255,0.3)]'}`}>
                                     <span className={`text-[10px] font-black tracking-[0.3em] uppercase ${option.disabled ? 'text-[#ff3333] drop-shadow-[0_0_8px_rgba(255,51,51,0.6)]' : 'text-tambo-lavender drop-shadow-[0_0_8px_rgba(201,160,255,0.4)]'}`}>
-                                        {option.disabled ? 'VYPRODÁNO' : option.badge}
+                                        {option.disabled ? t('options.soldOut') : option.badge}
                                     </span>
                                 </div>
                             )}

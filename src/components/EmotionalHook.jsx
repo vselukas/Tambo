@@ -1,6 +1,7 @@
 import { motion, useScroll } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 // Art Imports
 import padImg from '../assets/art/pad.jpg'
@@ -8,6 +9,7 @@ import studImg from '../assets/art/stud.jpg'
 import navratImg from '../assets/art/navrat.jpg'
 
 const EmotionalHook = () => {
+    const { t, dict } = useLanguage()
     const sectionRef = useRef(null)
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -17,20 +19,20 @@ const EmotionalHook = () => {
     const steps = [
         {
             image: padImg,
-            title: "Pád",
-            text: "Ten okamžik v hluboké noci, kdy zjistíš, že celý tvůj dosavadní život byla jen falešná, bezpečná kulisa.",
+            title: t('hook.steps.0.title'),
+            text: t('hook.steps.0.desc'),
             color: "text-tambo-rose"
         },
         {
             image: studImg,
-            title: "Stud",
-            text: "Stud, který tě pálí v hrdle, dokud nenajdeš odvahu ho vyplakat a přestat se omlouvat za to, že vnímáš více než ostatní.",
+            title: t('hook.steps.1.title'),
+            text: t('hook.steps.1.desc'),
             color: "text-tambo-lavender"
         },
         {
             image: navratImg,
-            title: "Návrat",
-            text: "Znovuzrození do tvé divoké, nespoutané podstaty. Domů, do těla a ke své pravé moudrosti.",
+            title: t('hook.steps.2.title'),
+            text: t('hook.steps.2.desc'),
             color: "text-tambo-blue"
         }
     ]
@@ -57,15 +59,15 @@ const EmotionalHook = () => {
                     className="text-center mb-16 md:mb-24 lg:mb-40"
                 >
                     <span className="text-tambo-rose font-body text-xs tracking-[0.6em] sm:tracking-[0.8em] uppercase mb-6 md:mb-8 block font-black opacity-80">
-                        CEREMONIE PRAVDY
+                        {t('hook.tagline')}
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl mb-8 md:mb-12 font-display leading-[1.1] text-white">
-                        Zrcadlo tvé <br />
-                        <span className="text-tambo-lavender italic drop-shadow-[0_0_15px_rgba(201,160,255,0.3)]">skutečné</span> podstaty
+                        {t('hook.title1')} <br />
+                        <span className="text-tambo-lavender italic drop-shadow-[0_0_15px_rgba(201,160,255,0.3)]">{t('hook.title2')}</span> {t('hook.title3')}
                     </h2>
                     <div className="w-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-8 md:mb-12"></div>
                     <p className="text-base sm:text-lg md:text-xl text-white/40 leading-relaxed font-light max-w-3xl mx-auto italic border-y border-white/5 py-8 md:py-12">
-                        „TAMBO je průvodcem k tvé vlastní vnitřní džungli. Je to tiché zrcadlo postavené před tvou duši ve chvíli, kdy už nelze lhát sama sobě."
+                        {t('hook.desc')}
                     </p>
                 </motion.div>
 

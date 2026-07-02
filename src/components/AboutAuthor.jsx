@@ -1,8 +1,12 @@
 import { motion } from 'framer-motion'
 import authorImg from '../assets/author.webp'
 import womanImg from '../assets/meditation.png'
+import { useLanguage } from '../context/LanguageContext'
 
 const AboutAuthor = () => {
+    const { t, dict } = useLanguage()
+    const tags = dict?.author?.tags || []
+
     return (
         <section id="autorka" className="py-20 md:py-32 lg:py-48 bg-mystic-950 overflow-hidden relative">
             {/* Background abstraction */}
@@ -28,7 +32,7 @@ const AboutAuthor = () => {
                         </div>
                         {/* Sacred Seal / Badge */}
                         <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-tambo-lavender rounded-full p-4 md:p-6 lg:p-8 flex items-center justify-center text-mystic-950 text-center text-[8px] md:text-[9px] lg:text-[10px] font-black tracking-widest leading-tight uppercase rotate-12 shadow-[0_20px_40px_rgba(15,10,24,0.5)]">
-                            Syrová Autenticita
+                            {t('author.badge')}
                         </div>
                     </motion.div>
 
@@ -39,24 +43,24 @@ const AboutAuthor = () => {
                         viewport={{ once: true }}
                         className="w-full lg:w-1/2"
                     >
-                        <span className="text-tambo-lavender font-body text-[10px] md:text-xs tracking-[0.8em] uppercase mb-6 md:mb-10 block font-black">DUŠE PŘÍBĚHU</span>
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-8 md:mb-12 leading-[1.1] md:leading-[0.9] font-display">Karolína <br /><span className="text-white/40 italic font-light">Pištěková</span></h2>
+                        <span className="text-tambo-lavender font-body text-[10px] md:text-xs tracking-[0.8em] uppercase mb-6 md:mb-10 block font-black">{t('author.tagline')}</span>
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-8 md:mb-12 leading-[1.1] md:leading-[0.9] font-display">{t('author.title1')} <br /><span className="text-white/40 italic font-light">{t('author.title2')}</span></h2>
                         <div className="space-y-8 md:space-y-10 text-lg md:text-xl text-white/50 leading-relaxed font-light">
                             <p className="italic border-l-4 border-tambo-lavender pl-6 md:pl-10 text-xl md:text-2xl text-white/80">
-                                „Nepíšu, abych se líbila. Píšu, abych unesla svou vlastní pravdu.“
+                                {t('author.quote')}
                             </p>
                             <p>
-                                TAMBO je manifest o cestě z hlučných striptýzových klubů až do ticha peruánské džungle. Karolína tě nevede tam, kde je to bezpečné, ale tam, kde se budeš cítit skutečně naživu.
+                                {t('author.desc1')}
                             </p>
                             <p>
-                                Dnes provází ženy, které odkládají masku ‚hodné holky‘. Pomáhá jim objevit jejich skutečnou sílu – tu, která může okolí znepokojovat, ale kterou svět ve skutečnosti zoufale potřebuje.
+                                {t('author.desc2')}
                             </p>
                         </div>
 
                         <div className="mt-20 flex flex-wrap gap-12 opacity-20 grayscale transition-all duration-500 hover:grayscale-0 hover:opacity-100">
-                            <div className="text-[10px] tracking-[0.4em] uppercase font-black">Jsi božská</div>
-                            <div className="text-[10px] tracking-[0.4em] uppercase font-black">Divine Festival</div>
-                            <div className="text-[10px] tracking-[0.4em] uppercase font-black">Tambo Core</div>
+                            {tags.map((tag, i) => (
+                                <div key={i} className="text-[10px] tracking-[0.4em] uppercase font-black">{tag}</div>
+                            ))}
                         </div>
                     </motion.div>
                 </div>

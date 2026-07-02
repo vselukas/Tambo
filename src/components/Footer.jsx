@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { Instagram, Facebook, Mail, Phone, Sparkles } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 const Footer = () => {
+    const { t } = useLanguage()
     return (
         <footer className="py-20 md:py-32 lg:py-48 bg-mystic-950 border-t border-white/5 relative overflow-hidden">
             {/* Background Spirit */}
@@ -17,11 +19,11 @@ const Footer = () => {
                     >
                         <Sparkles className="w-8 h-8 md:w-12 md:h-12 text-tambo-lavender mx-auto mb-8 md:mb-12 animate-pulse" />
                         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl mb-10 md:mb-16 font-display leading-[1.1] md:leading-[0.9]">
-                            TVÁ DIVOKOST <br />
-                            <span className="text-spirit italic font-light">JE TVÁ SÍLA.</span>
+                            {t('footer.title1')} <br />
+                            <span className="text-spirit italic font-light">{t('footer.title2')}</span>
                         </h2>
                         <a href="#koupit" className="btn-bold w-full sm:w-auto">
-                            CHCI KNIHU
+                            {t('footer.cta')}
                         </a>
                     </motion.div>
                 </div>
@@ -30,7 +32,7 @@ const Footer = () => {
                     <div className="space-y-12">
                         <h3 className="text-3xl font-display text-tambo-lavender italic">Tambo</h3>
                         <p className="text-lg text-white/30 leading-relaxed font-light italic border-l border-white/10 pl-8">
-                            Autentický manifest o odvaze a pravdě. První kniha Karolíny Pištěkové.
+                            {t('footer.desc')}
                         </p>
                         <div className="flex gap-6">
                             <a href="https://www.instagram.com/karolinapistekova/" target="_blank" rel="noopener noreferrer" className="w-16 h-16 rounded-2xl border border-white/5 flex items-center justify-center hover:border-tambo-lavender hover:text-tambo-lavender transition-all duration-700 bg-white/[0.02]">
@@ -40,7 +42,7 @@ const Footer = () => {
                     </div>
 
                     <div className="space-y-12">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.6em] text-white/40">SPOJENÍ</h4>
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.6em] text-white/40">{t('footer.contact')}</h4>
                         <ul className="space-y-8 text-base text-white/60 font-light">
                             <li className="flex items-center gap-6 group">
                                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-tambo-rose/20 transition-all duration-700">
@@ -58,13 +60,13 @@ const Footer = () => {
                     </div>
 
                     <div className="space-y-12">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.6em] text-white/40">PŮVOD</h4>
+                        <h4 className="text-[10px] font-black uppercase tracking-[0.6em] text-white/40">{t('footer.origin')}</h4>
                         <div className="text-xs text-white/30 space-y-4 font-bold tracking-[0.3em] uppercase">
-                            <p className="text-white">Karolína Pištěková</p>
-                            <p>Hořice, Srdce Evropy</p>
+                            <p className="text-white">{t('author.title1')} {t('author.title2')}</p>
+                            <p>{t('footer.location')}</p>
                             <div className="pt-12 text-[10px] opacity-40 font-light lowercase tracking-widest">
                                 <p>© 2026 TAMBO.</p>
-                                <p>všechna práva vyhrazena.</p>
+                                <p>{t('footer.rights')}</p>
                             </div>
                         </div>
                     </div>

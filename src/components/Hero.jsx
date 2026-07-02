@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'fram
 import { useRef, useEffect } from 'react'
 import mockupImg from '../assets/mockup.png'
 import universeImg from '../assets/universe.png'
+import { useLanguage } from '../context/LanguageContext'
 
 
 /* ──────────────────────── Sparkle SVG ──────────────────────── */
@@ -32,6 +33,7 @@ const FloatingDiamond = ({ className, style }) => (
 
 /* ──────────────────────── Hero Component ──────────────────────── */
 const Hero = () => {
+    const { t } = useLanguage()
     const containerRef = useRef(null)
     
     // Mouse Parallax Setup
@@ -179,13 +181,13 @@ const Hero = () => {
                         className="flex-1 text-center lg:text-left lg:max-w-none lg:pt-12"
                     >
                         <span className="text-tambo-lavender font-body text-xs sm:text-sm tracking-[0.8em] uppercase mb-6 md:mb-10 block font-black opacity-90 drop-shadow-[0_0_15px_rgba(201,160,255,0.5)]">
-                            ODVAHA BÝT SKUTEČNÁ
+                            {t('hero.tagline')}
                         </span>
 
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[5rem] 2xl:text-[6.5rem] mb-8 md:mb-12 leading-[1.1] md:leading-[0.9] font-display text-white">
-                            Vrať se k sobě. <br />
+                            {t('hero.title1')} <br />
                             <span className="relative">
-                                Přijmi svou{' '}
+                                {t('hero.title2')}{' '}
                                 <span
                                     className="italic relative inline-block animate-shimmer"
                                     style={{
@@ -197,21 +199,21 @@ const Hero = () => {
                                         filter: 'drop-shadow(0 0 25px rgba(255,126,179,0.5))',
                                     }}
                                 >
-                                    divokost.
+                                    {t('hero.title3')}
                                 </span>
                             </span>
                         </h1>
 
                         <p className="text-lg md:text-xl lg:text-2xl text-white/40 mb-10 md:mb-14 leading-relaxed font-light italic border-l-4 border-tambo-lavender/30 pl-6 md:pl-10 max-w-xl mx-auto lg:mx-0">
-                            TAMBO je manifest ženy, která už odmítá plnit cizí očekávání. Je to přímá cesta do hloubky, kde na tebe čeká tvoje skutečná pravda.
+                            {t('hero.desc')}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center lg:items-start w-full sm:w-auto">
                             <a href="#koupit" className="btn-bold w-full sm:w-auto">
-                                CHCI KNIHU
+                                {t('hero.ctaPrimary')}
                             </a>
                             <a href="https://cdn.prod.website-files.com/645a912a87cb14233f9f9bbd/6491ab808b79409bef0cf5df_Tambo-Ukazka.pdf" target="_blank" rel="noopener noreferrer" className="btn-outline-spirit w-full sm:w-auto text-[11px] md:text-[13px]">
-                                STÁHNOUT UKÁZKU
+                                {t('hero.ctaSecondary')}
                             </a>
                         </div>
                     </motion.div>

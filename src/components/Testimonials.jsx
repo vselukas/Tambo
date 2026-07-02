@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Quote } from 'lucide-react'
 import womanImg from '../assets/meditation.png'
+import { useLanguage } from '../context/LanguageContext'
 
 /* ──────────────────────── Decorative Components ──────────────────────── */
 const Sparkle = ({ className, style }) => (
@@ -18,6 +19,7 @@ const FloatingIcon = ({ className, style }) => (
 )
 
 const Testimonials = () => {
+    const { t, dict } = useLanguage()
     const sectionRef = useRef(null)
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -26,24 +28,7 @@ const Testimonials = () => {
 
     const yParallax = useTransform(scrollYProgress, [0, 1], [-150, 150])
 
-    const reviews = [
-        {
-            text: "Tato kniha mě pohltila až do poslední stránky. Je to jako by někdo konečně nahlas řekl to, co jsem roky cítila uvnitř, ale bála se to pojmenovat.",
-            author: "Terezie K."
-        },
-        {
-            text: "Syrové, pravdivé a nesmírně osvobozující. Karolína má dar psát tak, že se vám slova dotýkají přímo kostí.",
-            author: "Michaela R."
-        },
-        {
-            text: "Nečetla jsem knihu, prožívala jsem ji. Změnila můj pohled na to, co znamená být 'hodná holka'.",
-            author: "Jana V."
-        },
-        {
-            text: "Tambo je průvodcem tancem ve tmě. Ukazuje, že tam dole není nic, čeho bychom se měly bát, pokud jsme ochotné vidět.",
-            author: "Lucie S."
-        }
-    ]
+    const reviews = dict?.testimonials?.reviews || []
 
     return (
         <section ref={sectionRef} id="recenze" className="py-20 md:py-40 lg:py-64 bg-mystic-950 relative overflow-hidden">
@@ -73,11 +58,11 @@ const Testimonials = () => {
                     className="text-center mb-16 md:mb-24 lg:mb-40"
                 >
                     <span className="text-tambo-rose font-body text-[10px] md:text-xs tracking-[0.6em] uppercase mb-4 md:mb-6 block font-black opacity-60">
-                        RECENZE
+                        {t('testimonials.tagline')}
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display mb-6 md:mb-8 text-white leading-[1.1]">
-                        Hlasy žen, které <br />
-                        <span className="text-tambo-lavender italic drop-shadow-[0_0_15px_rgba(201,160,255,0.2)]">slyšely volání</span>
+                        {t('testimonials.title1')} <br />
+                        <span className="text-tambo-lavender italic drop-shadow-[0_0_15px_rgba(201,160,255,0.2)]">{t('testimonials.title2')}</span>
                     </h2>
                     <div className="w-16 h-px bg-gradient-to-r from-transparent via-tambo-lavender/30 to-transparent mx-auto"></div>
                 </motion.div>
@@ -94,7 +79,7 @@ const Testimonials = () => {
                         >
                             <Quote className="w-8 h-8 md:w-12 md:h-12 text-tambo-rose/5 absolute top-6 left-6 md:top-8 md:left-8 group-hover:text-tambo-rose/10 transition-colors" />
                             <p className="text-lg md:text-xl lg:text-2xl text-white/50 leading-relaxed font-light italic mb-8 md:mb-10 relative z-10 group-hover:text-white/80 transition-colors">
-                                "{review.text}"
+                                "{review.quote}"
                             </p>
                             <div className="flex items-center gap-6">
                                 <div className="w-10 h-px bg-tambo-lavender/20 group-hover:w-16 transition-all duration-700"></div>
