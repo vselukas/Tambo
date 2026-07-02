@@ -1,1 +1,14 @@
+# Dependencies
 node_modules
+
+# Build output (deployed to gh-pages branch, not tracked on main)
+dist
+
+# Local env & editor
+.env
+.env.local
+.DS_Store
+*.log
+
+# Local-only working/handoff doc
+project_context.md
