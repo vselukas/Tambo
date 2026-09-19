@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "title": "TAMBO – Karolína Pištěková",
+        "description": "Autentický příběh ženy, která se rozpadla – aby už nemusela žít ve lži. Nečteš ho hlavou. Čteš ho tělem."
+    },
+    "nav": {
+        "about": "O knize",
+        "reviews": "Recenze",
+        "author": "Autorka",
+        "buy": "Chci knihu",
+        "switchLang": "EN",
+        "switchLangLong": "ENGLISH VERSION",
+        "openMenu": "Otevřít menu",
+        "closeMenu": "Zavřít menu"
+    },
+    "hero": {
+        "tagline": "ODVAHA BÝT SKUTEČNÁ",
+        "title1": "Vrať se k sobě.",
+        "title2": "Přijmi svou",
+        "title3": "divokost.",
+        "desc": "TAMBO je manifest ženy, která už odmítá plnit cizí očekávání. Je to přímá cesta do hloubky, kde na tebe čeká tvoje skutečná pravda.",
+        "ctaPrimary": "CHCI KNIHU",
+        "ctaSecondary": "STÁHNOUT UKÁZKU",
+        "mockupAlt": "Kniha TAMBO – obálka"
+    },
+    "hook": {
+        "tagline": "CEREMONIE PRAVDY",
+        "title1": "Zrcadlo tvé",
+        "title2": "skutečné",
+        "title3": "podstaty",
+        "desc": "„TAMBO je průvodcem k tvé vlastní vnitřní džungli. Je to tiché zrcadlo postavené před tvou duši ve chvíli, kdy už nelze lhát sama sobě.\"",
+        "steps": [
+            {
+                "title": "Pád",
+                "desc": "Ten okamžik v hluboké noci, kdy zjistíš, že celý tvůj dosavadní život byla jen falešná, bezpečná kulisa."
+            },
+            {
+                "title": "Stud",
+                "desc": "Stud, který tě pálí v hrdle, dokud nenajdeš odvahu ho vyplakat a přestat se omlouvat za to, že vnímáš více než ostatní."
+            },
+            {
+                "title": "Návrat",
+                "desc": "Znovuzrození do tvé divoké, nespoutané podstaty. Domů, do těla a ke své pravé moudrosti."
+            }
+        ]
+    },
+    "testimonials": {
+        "tagline": "RECENZE",
+        "title1": "Hlasy žen, které",
+        "title2": "slyšely volání"
+    },
+    "options": {
+        "tagline": "INVESTICE DO PRAVDY",
+        "title1": "Zvol si",
+        "title2": "svou podobu",
+        "title3": "proměny",
+        "soldOut": "VYPRODÁNO"
+    },
+    "author": {
+        "tagline": "DUŠE PŘÍBĚHU",
+        "title1": "Karolína",
+        "title2": "Pištěková",
+        "quote": "„Nepíšu, abych se líbila. Píšu, abych unesla svou vlastní pravdu.“",
+        "desc1": "TAMBO je manifest o cestě z hlučných striptýzových klubů až do ticha peruánské džungle. Karolína tě nevede tam, kde je to bezpečné, ale tam, kde se budeš cítit skutečně naživu.",
+        "desc2": "Dnes provází ženy, které odkládají masku ‚hodné holky‘. Pomáhá jim objevit jejich skutečnou sílu – tu, která může okolí znepokojovat, ale kterou svět ve skutečnosti zoufale potřebuje.",
+        "badge": "Syrová Autenticita",
+        "tags": ["Jsi božská", "Divine Festival", "Tambo Core"]
+    },
+    "footer": {
+        "title1": "TVÁ DIVOKOST",
+        "title2": "JE TVÁ SÍLA.",
+        "cta": "CHCI KNIHU",
+        "desc": "Autentický manifest o odvaze a pravdě. První kniha Karolíny Pištěkové.",
+        "contact": "SPOJENÍ",
+        "origin": "PŮVOD",
+        "location": "Hořice, Srdce Evropy",
+        "rights": "všechna práva vyhrazena."
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "lang": "en",
+    "order": 1,
+    "title": "E-book",
+    "subtitle": "Instant access to the story. No waiting.",
+    "price": "€10",
+    "features": ["PDF / EPUB", "Read instantly"],
+    "cta": "Get the book",
+    "highlight": true
+}

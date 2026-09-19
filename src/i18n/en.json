@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "title": "TAMBO – Karolína Pištěková",
+        "description": "An authentic story of a woman who fell apart – so she would no longer have to live a lie. You don't read it with your head. You read it with your body."
+    },
+    "nav": {
+        "about": "About",
+        "reviews": "Reviews",
+        "author": "Author",
+        "buy": "Get the book",
+        "switchLang": "CZ",
+        "switchLangLong": "ČESKÁ VERZE",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu"
+    },
+    "hero": {
+        "tagline": "COURAGE TO BE REAL",
+        "title1": "Return to yourself.",
+        "title2": "Embrace your",
+        "title3": "wildness.",
+        "desc": "TAMBO is a manifesto of a woman who refuses to fulfill other's expectations. It's a direct path to the depths where your true self awaits.",
+        "ctaPrimary": "GET THE BOOK",
+        "ctaSecondary": "DOWNLOAD SAMPLE",
+        "mockupAlt": "TAMBO book – cover"
+    },
+    "hook": {
+        "tagline": "CEREMONY OF TRUTH",
+        "title1": "Mirror of your",
+        "title2": "true",
+        "title3": "essence",
+        "desc": "“TAMBO is a guide to your own inner jungle. A silent mirror placed before your soul when it's no longer possible to lie to yourself.”",
+        "steps": [
+            {
+                "title": "The Fall",
+                "desc": "That moment deep in the night when you realize your entire life so far was just a false, safe facade."
+            },
+            {
+                "title": "The Shame",
+                "desc": "The shame that burns your throat until you find the courage to cry it out and stop apologizing for feeling more than others."
+            },
+            {
+                "title": "The Return",
+                "desc": "Rebirth into your wild, untamed essence. Coming home, to your body and your true wisdom."
+            }
+        ]
+    },
+    "testimonials": {
+        "tagline": "REVIEWS",
+        "title1": "Voices of women who",
+        "title2": "heard the call"
+    },
+    "options": {
+        "tagline": "INVESTMENT IN TRUTH",
+        "title1": "Choose",
+        "title2": "your form",
+        "title3": "of transformation",
+        "soldOut": "SOLD OUT"
+    },
+    "author": {
+        "tagline": "SOUL OF THE STORY",
+        "title1": "Karolína",
+        "title2": "Pištěková",
+        "quote": "“I don't write to be liked. I write to bear my own truth.”",
+        "desc1": "TAMBO is a manifesto about the journey from noisy strip clubs to the silence of the Peruvian jungle. Karolína doesn't lead you where it's safe, but where you will truly feel alive.",
+        "desc2": "Today she guides women who are putting down the 'good girl' mask. She helps them discover their true power — one that might unsettle those around them, but which the world desperately needs.",
+        "badge": "Raw Authenticity",
+        "tags": ["You are divine", "Divine Festival", "Tambo Core"]
+    },
+    "footer": {
+        "title1": "YOUR WILDNESS",
+        "title2": "IS YOUR STRENGTH.",
+        "cta": "GET THE BOOK",
+        "desc": "An authentic manifesto about courage and truth. The first book by Karolína Pištěková.",
+        "contact": "CONNECT",
+        "origin": "ORIGIN",
+        "location": "Hořice, Heart of Europe",
+        "rights": "all rights reserved."
+    }
+}

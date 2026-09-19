@@ -1,0 +1,9 @@
+{
+    "lang": "cs",
+    "order": 3,
+    "title": "E-book",
+    "subtitle": "Okamžitý přístup k příběhu. Bez čekání.",
+    "price": "249 Kč",
+    "features": ["PDF / EPUB", "Čti okamžitě"],
+    "cta": "Chci knihu"
+}

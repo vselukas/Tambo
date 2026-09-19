@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+import { getLang, getUi } from '../i18n/ui';
+import authorImg from '../assets/author.webp';
+import womanImg from '../assets/meditation.png';
+
+const t = getUi(getLang(Astro.currentLocale)).author;
+---
+
+<section id="autorka" class="relative overflow-hidden bg-mystic-950 py-20 md:py-32 lg:py-48">
+    <!-- Background abstraction -->
+    <div class="pointer-events-none absolute top-1/2 left-1/2 h-[100vw] w-[100vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-tambo-purple/5 blur-[200px]"></div>
+    <Image
+        src={womanImg}
+        alt=""
+        width={1200}
+        quality={40}
+        class="pointer-events-none absolute -right-20 -bottom-20 w-[60vw] scale-150 rotate-[-15deg] opacity-[0.02] grayscale"
+    />
+
+    <div class="relative z-10 container mx-auto px-6">
+        <div class="flex flex-col items-center gap-16 md:gap-20 lg:flex-row lg:gap-32">
+            <!-- Portrait -->
+            <div data-reveal="scale" class="group relative w-full lg:w-1/2">
+                <div class="absolute -inset-10 rounded-full bg-tambo-rose/10 blur-[100px] transition-all duration-1000 group-hover:bg-tambo-rose/20"></div>
+                <div class="relative overflow-hidden rounded-[4rem] border border-white/10 shadow-2xl">
+                    <Image
+                        src={authorImg}
+                        alt="Karolína Pištěková"
+                        widths={[640, 960, 1334]}
+                        sizes="(min-width: 1024px) 45vw, 90vw"
+                        class="w-full transition-all duration-[2000ms]"
+                    />
+                </div>
+                <!-- Sacred seal / badge -->
+                <div class="absolute -right-6 -bottom-6 flex h-24 w-24 rotate-12 items-center justify-center rounded-full bg-tambo-lavender p-4 text-center text-[8px] leading-tight font-black tracking-widest text-mystic-950 uppercase shadow-[0_20px_40px_rgba(15,10,24,0.5)] md:-right-10 md:-bottom-10 md:h-32 md:w-32 md:p-6 md:text-[9px] lg:h-40 lg:w-40 lg:p-8 lg:text-[10px]">
+                    {t.badge}
+                </div>
+            </div>
+
+            <!-- Text -->
+            <div data-reveal="left" class="w-full lg:w-1/2">
+                <span class="mb-6 block font-body text-[10px] font-black tracking-[0.8em] text-tambo-lavender uppercase md:mb-10 md:text-xs">{t.tagline}</span>
+                <h2 class="mb-8 font-display text-4xl leading-[1.1] sm:text-5xl md:mb-12 md:text-6xl md:leading-[0.9] lg:text-7xl xl:text-8xl">
+                    {t.title1}<br /><span class="font-light text-white/40 italic">{t.title2}</span>
+                </h2>
+                <div class="space-y-8 text-lg leading-relaxed font-light text-white/50 md:space-y-10 md:text-xl">
+                    <p class="border-l-4 border-tambo-lavender pl-6 text-xl text-white/80 italic md:pl-10 md:text-2xl">{t.quote}</p>
+                    <p>{t.desc1}</p>
+                    <p>{t.desc2}</p>
+                </div>
+
+                <div class="mt-20 flex flex-wrap gap-12 opacity-20 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0">
+                    {t.tags.map((tag) => <div class="text-[10px] font-black tracking-[0.4em] uppercase">{tag}</div>)}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

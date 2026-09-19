@@ -1,0 +1,143 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLang, getUi } from '../i18n/ui';
+import Icon from './Icon.astro';
+
+const lang = getLang(Astro.currentLocale);
+const t = getUi(lang).nav;
+const otherLang = lang === 'cs' ? 'en' : 'cs';
+const switchHref = getRelativeLocaleUrl(otherLang);
+
+const links = [
+    { label: t.about, id: 'o-knize' },
+    { label: t.reviews, id: 'recenze' },
+    { label: t.author, id: 'autorka' },
+];
+---
+
+<nav
+    id="navbar"
+    class="fixed top-0 left-0 z-50 w-full border-b border-transparent bg-transparent py-10 transition-all duration-700"
+    data-scrolled-class="bg-mystic-950/60 backdrop-blur-2xl py-4 border-white/5"
+    data-top-class="bg-transparent py-10 border-transparent"
+>
+    <div class="container mx-auto flex items-center justify-between px-6">
+        <div class="flex items-center gap-4 md:gap-6">
+            <a href="#hero" class="font-display text-2xl font-black tracking-[0.4em] text-tambo-lavender uppercase">Tambo</a>
+            <a
+                href={switchHref}
+                hreflang={otherLang}
+                class="border-l border-white/10 pl-4 text-[10px] font-black tracking-[0.2em] text-white/30 transition-all duration-300 hover:text-white md:pl-6 md:text-xs"
+            >
+                {t.switchLang}
+            </a>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden items-center space-x-12 md:flex">
+            {links.map((link) => (
+                <a
+                    href={`#${link.id}`}
+                    data-nav-link={link.id}
+                    class="nav-link text-xs font-black tracking-[0.4em] text-white/50 uppercase transition-all duration-500 hover:scale-110 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                >
+                    {link.label}
+                </a>
+            ))}
+            <a href="#koupit" class="btn-bold ml-2 px-8! py-3! text-[12px]!">{t.buy}</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+            id="menu-toggle"
+            type="button"
+            class="text-tambo-lavender md:hidden"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label={t.openMenu}
+            data-label-open={t.openMenu}
+            data-label-close={t.closeMenu}
+        >
+            <Icon name="menu" class="h-8 w-8 menu-icon-open" />
+            <Icon name="x" class="hidden h-8 w-8 menu-icon-close" />
+        </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[-1] hidden flex-col items-center justify-center space-y-12 bg-mystic-950 md:hidden!">
+        {links.map((link) => (
+            <a
+                href={`#${link.id}`}
+                data-nav-link={link.id}
+                class="nav-link font-display text-xl font-bold tracking-[0.3em] text-white/40 uppercase transition-all duration-500 hover:text-white md:text-2xl"
+            >
+                {link.label}
+            </a>
+        ))}
+        <a
+            href={switchHref}
+            hreflang={otherLang}
+            class="font-display text-xl font-bold tracking-[0.3em] text-white/40 uppercase transition-all duration-500 hover:text-white md:text-2xl"
+        >
+            {t.switchLangLong}
+        </a>
+        <a href="#koupit" class="btn-bold mt-8 px-8! py-4! text-xs!">{t.buy}</a>
+    </div>
+</nav>
+
+<style>
+    .nav-link.is-active {
+        color: var(--color-tambo-rose);
+        filter: drop-shadow(0 0 12px rgba(255, 126, 179, 0.8));
+        transform: scale(1.1);
+    }
+</style>
+
+<script>
+    const nav = document.getElementById('navbar');
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    if (nav && toggle && menu) {
+        // Compact, blurred bar once the page is scrolled
+        const scrolledClasses = (nav.dataset.scrolledClass ?? '').split(' ');
+        const topClasses = (nav.dataset.topClass ?? '').split(' ');
+        const onScroll = () => {
+            const scrolled = window.scrollY > 50;
+            nav.classList.remove(...(scrolled ? topClasses : scrolledClasses));
+            nav.classList.add(...(scrolled ? scrolledClasses : topClasses));
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Mobile menu
+        const iconOpen = toggle.querySelector('.menu-icon-open');
+        const iconClose = toggle.querySelector('.menu-icon-close');
+        const setMenu = (open: boolean) => {
+            menu.classList.toggle('hidden', !open);
+            menu.classList.toggle('flex', open);
+            iconOpen?.classList.toggle('hidden', open);
+            iconClose?.classList.toggle('hidden', !open);
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', (open ? toggle.dataset.labelClose : toggle.dataset.labelOpen) ?? '');
+        };
+        toggle.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+        menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+
+        // Highlight the link of the section currently in the middle of the screen
+        const links = nav.querySelectorAll<HTMLElement>('[data-nav-link]');
+        const io = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (!entry.isIntersecting) continue;
+                    links.forEach((l) => l.classList.toggle('is-active', l.dataset.navLink === entry.target.id));
+                }
+            },
+            { rootMargin: '-40% 0px -40% 0px', threshold: 0 },
+        );
+        ['hero', 'o-knize', 'recenze', 'autorka'].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) io.observe(el);
+        });
+    }
+</script>

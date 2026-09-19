@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import { getLang, getUi } from '../i18n/ui';
+
+const lang = getLang(Astro.currentLocale);
+const t = getUi(lang).options;
+
+const options = (await getCollection('products', ({ data }) => data.lang === lang)).sort(
+    (a, b) => a.data.order - b.data.order,
+);
+// One option (EN e-book) sits centred; the full CZ set spreads to four columns
+const gridClass = options.length === 1 ? 'mx-auto max-w-sm md:grid-cols-1' : 'md:grid-cols-2 lg:grid-cols-4';
+---
+
+<section id="koupit" class="relative overflow-hidden bg-mystic-950 py-20 md:py-32 lg:py-40">
+    <!-- Background glows -->
+    <div class="absolute top-0 left-1/2 -z-10 h-full w-full -translate-x-1/2 opacity-40">
+        <div class="absolute top-1/4 left-[-10%] h-[50vw] w-[50vw] animate-pulse-spirit rounded-full bg-tambo-lavender/10 blur-[180px]"></div>
+        <div class="absolute right-[-10%] bottom-1/4 h-[50vw] w-[50vw] animate-pulse-spirit rounded-full bg-tambo-rose/10 blur-[180px]" style="animation-delay:-3s"></div>
+    </div>
+
+    <div class="relative z-10 container mx-auto px-6">
+        <div data-reveal="up" class="mb-20 text-center md:mb-32">
+            <span class="mb-6 block font-body text-[10px] font-black tracking-[0.8em] text-tambo-rose uppercase md:mb-10 md:text-xs md:tracking-[1em]">{t.tagline}</span>
+            <h2 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[6rem] 2xl:text-9xl">
+                {t.title1}{' '}<br class="sm:hidden" /><span class="font-light text-tambo-lavender italic">{t.title2}</span>{' '}{t.title3}
+            </h2>
+        </div>
+
+        <div class={`grid grid-cols-1 gap-8 lg:gap-12 ${gridClass}`}>
+            {options.map(({ data: o }, idx) => {
+                const badge = o.soldOut ? t.soldOut : o.badge;
+                const buttonClass = `w-full ${o.highlight ? 'btn-bold' : 'btn-outline-spirit'} ${o.soldOut ? 'cursor-not-allowed opacity-20' : ''}`;
+                return (
+                    <div
+                        data-reveal="up"
+                        style={`--reveal-delay:${idx * 0.1}s`}
+                        class:list={[
+                            'glass-spirit relative transition-all duration-1000',
+                            o.highlight && 'border-tambo-lavender/30 bg-tambo-lavender/[0.04] ring-1 ring-tambo-lavender/20',
+                            o.soldOut && 'border-dashed border-white/10',
+                        ]}
+                    >
+                        {badge && (
+                            <div
+                                class:list={[
+                                    'absolute -top-4 -right-4 z-30 rounded-full border bg-mystic-950 px-4 py-2',
+                                    o.soldOut
+                                        ? 'border-red-500/80 shadow-[0_0_20px_rgba(239,68,68,0.4)]'
+                                        : 'border-tambo-lavender/50 shadow-[0_0_20px_rgba(201,160,255,0.3)]',
+                                ]}
+                            >
+                                <span
+                                    class:list={[
+                                        'text-[10px] font-black tracking-[0.3em] uppercase',
+                                        o.soldOut
+                                            ? 'text-[#ff3333] drop-shadow-[0_0_8px_rgba(255,51,51,0.6)]'
+                                            : 'text-tambo-lavender drop-shadow-[0_0_8px_rgba(201,160,255,0.4)]',
+                                    ]}
+                                >
+                                    {badge}
+                                </span>
+                            </div>
+                        )}
+
+                        <div class:list={['flex h-full flex-col justify-between p-8 md:p-10 lg:p-12', o.soldOut && 'opacity-30 grayscale']}>
+                            <div>
+                                <h3 class="mb-6 font-display text-2xl text-white md:mb-8 md:text-3xl">{o.title}</h3>
+                                <p class="mb-6 text-sm leading-relaxed font-light text-white/60 italic md:mb-8 md:text-base">{o.subtitle}</p>
+                                <div class="mb-8 font-display text-3xl tracking-tight text-white md:mb-10 md:text-4xl">{o.price}</div>
+                                <ul class="mb-12 space-y-4">
+                                    {o.features.map((feature) => (
+                                        <li class="flex items-center gap-4 text-[10px] font-bold tracking-widest text-white/40 uppercase">
+                                            <span class="h-1 w-1 rounded-full bg-tambo-rose/50"></span>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {o.href && !o.soldOut ? (
+                                <a href={o.href} class={buttonClass}>
+                                    <span class="relative z-10">{o.cta}</span>
+                                </a>
+                            ) : (
+                                <button type="button" disabled={o.soldOut} class={buttonClass}>
+                                    <span class="relative z-10">{o.cta}</span>
+                                </button>
+                            )}
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    </div>
+</section>
