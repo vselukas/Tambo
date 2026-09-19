@@ -33,19 +33,19 @@ const t = getUi(getLang(Astro.currentLocale)).author;
                     />
                 </div>
                 <!-- Sacred seal / badge -->
-                <div class="absolute -right-6 -bottom-6 flex h-24 w-24 rotate-12 items-center justify-center rounded-full bg-tambo-lavender p-4 text-center text-[8px] leading-tight font-black tracking-widest text-mystic-950 uppercase shadow-[0_20px_40px_rgba(15,10,24,0.5)] md:-right-10 md:-bottom-10 md:h-32 md:w-32 md:p-6 md:text-[9px] lg:h-40 lg:w-40 lg:p-8 lg:text-[10px]">
+                <div class="author-badge absolute -right-6 -bottom-6 flex h-24 w-24 rotate-12 items-center justify-center rounded-full bg-tambo-lavender p-4 text-center text-[8px] leading-tight font-black tracking-widest text-mystic-950 uppercase shadow-[0_20px_40px_rgba(15,10,24,0.5)] md:-right-10 md:-bottom-10 md:h-32 md:w-32 md:p-6 md:text-[9px] lg:h-40 lg:w-40 lg:p-8 lg:text-[10px]">
                     {t.badge}
                 </div>
             </div>
 
             <!-- Text -->
             <div data-reveal="left" class="w-full lg:w-1/2">
-                <span class="mb-6 block font-body text-[10px] font-black tracking-[0.8em] text-tambo-lavender uppercase md:mb-10 md:text-xs">{t.tagline}</span>
-                <h2 class="mb-8 font-display text-4xl leading-[1.1] sm:text-5xl md:mb-12 md:text-6xl md:leading-[0.9] lg:text-7xl xl:text-8xl">
+                <span class="author-tagline mb-6 block font-body text-[10px] font-black tracking-[0.8em] text-tambo-lavender uppercase md:mb-10 md:text-xs">{t.tagline}</span>
+                <h2 class="author-title mb-8 font-display text-4xl leading-[1.1] sm:text-5xl md:mb-12 md:text-6xl md:leading-[0.9] lg:text-7xl xl:text-8xl">
                     {t.title1}<br /><span class="font-light text-white/40 italic">{t.title2}</span>
                 </h2>
-                <div class="space-y-8 text-lg leading-relaxed font-light text-white/50 md:space-y-10 md:text-xl">
-                    <p class="border-l-4 border-tambo-lavender pl-6 text-xl text-white/80 italic md:pl-10 md:text-2xl">{t.quote}</p>
+                <div class="author-text space-y-8 text-lg leading-relaxed font-light text-white/50 md:space-y-10 md:text-xl">
+                    <p class="author-quote border-l-4 border-tambo-lavender pl-6 text-xl text-white/80 italic md:pl-10 md:text-2xl">{t.quote}</p>
                     <p>{t.desc1}</p>
                     <p>{t.desc2}</p>
                 </div>

@@ -91,16 +91,16 @@ const sparkles = [
 
             <!-- Text -->
             <div data-parallax="text" class="hero-text-in flex-1 text-center lg:max-w-none lg:pt-12 lg:text-left">
-                <span class="mb-6 block font-body text-xs font-black tracking-[0.8em] text-tambo-lavender uppercase opacity-90 drop-shadow-[0_0_15px_rgba(201,160,255,0.5)] sm:text-sm md:mb-10">
+                <span class="hero-tagline mb-6 block font-body text-xs font-black tracking-[0.8em] text-tambo-lavender uppercase opacity-90 drop-shadow-[0_0_15px_rgba(201,160,255,0.5)] sm:text-sm md:mb-10">
                     {t.tagline}
                 </span>
 
-                <h1 class="mb-8 font-display text-4xl leading-[1.1] text-white sm:text-5xl md:mb-12 md:text-6xl md:leading-[0.9] lg:text-[4rem] xl:text-[5rem] 2xl:text-[6.5rem]">
+                <h1 class="hero-title mb-8 font-display text-4xl leading-[1.1] text-white sm:text-5xl md:mb-12 md:text-6xl md:leading-[0.9] lg:text-[4rem] xl:text-[5rem] 2xl:text-[6.5rem]">
                     {t.title1}<br />
                     <span class="relative">
                         {t.title2}{' '}
                         <span
-                            class="relative inline-block animate-shimmer italic"
+                            class="hero-title-accent relative inline-block animate-shimmer italic"
                             style="background:linear-gradient(90deg,#C9A0FF,#FF7EB3,#C9A0FF);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 25px rgba(255,126,179,0.5))"
                         >
                             {t.title3}
@@ -108,13 +108,13 @@ const sparkles = [
                     </span>
                 </h1>
 
-                <p class="mx-auto mb-10 max-w-xl border-l-4 border-tambo-lavender/30 pl-6 text-lg leading-relaxed font-light text-white/40 italic md:mb-14 md:pl-10 md:text-xl lg:mx-0 lg:text-2xl">
+                <p class="hero-desc mx-auto mb-10 max-w-xl border-l-4 border-tambo-lavender/30 pl-6 text-lg leading-relaxed font-light text-white/40 italic md:mb-14 md:pl-10 md:text-xl lg:mx-0 lg:text-2xl">
                     {t.desc}
                 </p>
 
                 <div class="flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row sm:gap-8 lg:items-start">
-                    <a href={ctaHref} class="btn-bold w-full sm:w-auto">{t.ctaPrimary}</a>
-                    <a href={sampleUrl} target="_blank" rel="noopener noreferrer" class="btn-outline-spirit w-full text-[11px] sm:w-auto md:text-[13px]">
+                    <a href={ctaHref} class="hero-cta btn-bold w-full sm:w-auto">{t.ctaPrimary}</a>
+                    <a href={sampleUrl} target="_blank" rel="noopener noreferrer" class="hero-cta-secondary btn-outline-spirit w-full text-[11px] sm:w-auto md:text-[13px]">
                         {t.ctaSecondary}
                     </a>
                 </div>

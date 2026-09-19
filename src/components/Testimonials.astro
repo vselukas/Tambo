@@ -38,10 +38,10 @@ const reviews = (await getCollection('testimonials', ({ data }) => data.lang ===
 
     <div class="relative z-10 container mx-auto px-6">
         <div data-reveal="up" class="mb-16 text-center md:mb-24 lg:mb-40">
-            <span class="mb-4 block font-body text-[10px] font-black tracking-[0.6em] text-tambo-rose uppercase opacity-60 md:mb-6 md:text-xs">
+            <span class="reviews-tagline mb-4 block font-body text-[10px] font-black tracking-[0.6em] text-tambo-rose uppercase opacity-60 md:mb-6 md:text-xs">
                 {t.tagline}
             </span>
-            <h2 class="mb-6 font-display text-3xl leading-[1.1] text-white sm:text-4xl md:mb-8 md:text-6xl lg:text-7xl">
+            <h2 class="reviews-title mb-6 font-display text-3xl leading-[1.1] text-white sm:text-4xl md:mb-8 md:text-6xl lg:text-7xl">
                 {t.title1}<br />
                 <span class="text-tambo-lavender italic drop-shadow-[0_0_15px_rgba(201,160,255,0.2)]">{t.title2}</span>
             </h2>
@@ -53,15 +53,15 @@ const reviews = (await getCollection('testimonials', ({ data }) => data.lang ===
                 <blockquote
                     data-reveal="up"
                     style={`--reveal-delay:${idx * 0.15}s`}
-                    class="glass-spirit group relative flex flex-col justify-between p-8 transition-all duration-1000 hover:border-tambo-lavender/30 md:p-10 lg:p-16"
+                    class="review-card glass-spirit group relative flex flex-col justify-between p-8 transition-all duration-1000 hover:border-tambo-lavender/30 md:p-10 lg:p-16"
                 >
                     <Icon name="quote" class="absolute top-6 left-6 h-8 w-8 text-tambo-rose/5 transition-colors group-hover:text-tambo-rose/10 md:top-8 md:left-8 md:h-12 md:w-12" />
-                    <p class="relative z-10 mb-8 text-lg leading-relaxed font-light text-white/50 italic transition-colors group-hover:text-white/80 md:mb-10 md:text-xl lg:text-2xl">
+                    <p class="review-quote relative z-10 mb-8 text-lg leading-relaxed font-light text-white/50 italic transition-colors group-hover:text-white/80 md:mb-10 md:text-xl lg:text-2xl">
                         "{review.data.quote}"
                     </p>
                     <footer class="flex items-center gap-6">
                         <div class="h-px w-10 bg-tambo-lavender/20 transition-all duration-700 group-hover:w-16"></div>
-                        <cite class="font-body text-xs font-bold tracking-[0.3em] text-tambo-lavender/60 uppercase not-italic">{review.data.author}</cite>
+                        <cite class="review-author font-body text-xs font-bold tracking-[0.3em] text-tambo-lavender/60 uppercase not-italic">{review.data.author}</cite>
                     </footer>
                     <div class="absolute inset-0 rounded-[inherit] bg-linear-to-br from-white/[0.02] to-transparent opacity-0 transition-opacity duration-1000 group-hover:opacity-100"></div>
                 </blockquote>

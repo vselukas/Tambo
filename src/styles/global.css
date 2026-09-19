@@ -1,22 +1,43 @@
 @import "tailwindcss";
 
 /* ───────────────────────── Design tokens ─────────────────────────
-   Single source of truth for colours, fonts and motion. Tailwind 4
-   turns each variable into utilities (bg-tambo-rose, font-display…). */
+   Single source of truth for colours and fonts. They live in :root so
+   visual tools (Stacki → Variables) can read and edit them; the @theme
+   block below maps them onto Tailwind utilities (bg-brand-rose, font-display…). */
+:root {
+    /* Backgrounds */
+    --bg-deep: #0f0a18;
+    --bg-base: #150f24;
+    --bg-raised: #251840;
+
+    /* Brand colours */
+    --brand-lavender: #c9a0ff;
+    --brand-rose: #ff7eb3;
+    --brand-blue: #9b72cf;
+    --brand-purple: #8b5cf6;
+    --brand-gold: #f5d0a9;
+
+    /* Fonts */
+    --font-heading: "Playfair Display", serif;
+    --font-text: "Inter", system-ui, sans-serif;
+}
+
+@theme inline {
+    --color-mystic-950: var(--bg-deep);
+    --color-mystic-900: var(--bg-base);
+    --color-mystic-800: var(--bg-raised);
+
+    --color-tambo-lavender: var(--brand-lavender);
+    --color-tambo-rose: var(--brand-rose);
+    --color-tambo-blue: var(--brand-blue);
+    --color-tambo-purple: var(--brand-purple);
+    --color-tambo-gold: var(--brand-gold);
+
+    --font-display: var(--font-heading);
+    --font-body: var(--font-text);
+}
+
 @theme {
-    --color-mystic-950: #0f0a18;
-    --color-mystic-900: #150f24;
-    --color-mystic-800: #251840;
-
-    --color-tambo-lavender: #c9a0ff;
-    --color-tambo-rose: #ff7eb3;
-    --color-tambo-blue: #9b72cf;
-    --color-tambo-purple: #8b5cf6;
-    --color-tambo-gold: #f5d0a9;
-
-    --font-display: "Playfair Display", serif;
-    --font-body: "Inter", system-ui, sans-serif;
-
     --animate-pulse-spirit: pulseSpirit 4s ease-in-out infinite;
     --animate-shimmer: shimmer 8s linear infinite;
     --animate-bounce-y: bounceY 3s ease-in-out infinite;
@@ -53,7 +74,7 @@ body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-    background-color: var(--color-mystic-950);
+    background-color: var(--bg-deep);
     overflow-x: hidden;
     @apply font-body text-white/90 antialiased;
 }
@@ -98,7 +119,7 @@ body {
     }
     .btn-outline-spirit:hover {
         background-color: white;
-        color: var(--color-mystic-950);
+        color: var(--bg-deep);
         border-color: white;
         box-shadow: 0 0 40px rgba(201, 160, 255, 0.3);
     }
@@ -111,7 +132,7 @@ body {
 
     /* Text Spirit Gradient */
     .text-spirit {
-        background: linear-gradient(90deg, var(--color-tambo-lavender), var(--color-tambo-rose), var(--color-tambo-purple));
+        background: linear-gradient(90deg, var(--brand-lavender), var(--brand-rose), var(--brand-purple));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
