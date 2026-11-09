@@ -4,8 +4,25 @@
     {
       "name": "tambo-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 4321
+    },
+    {
+      "name": "sandbox",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8787",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "prototypes"
+      ],
+      "port": 8787
     }
   ]
 }
